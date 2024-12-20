@@ -30,25 +30,25 @@ const SearchBar = () => {
     if (manufacturer === " " && model === " ") {
       return alert("Please fill in the search bar");
     }
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    updatesearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
-  const updateSearchParams = (model: string, manufacturer: string) => {
-    const searchparams = new URLSearchParams(window.location.search);
+  const updatesearchParams = (model: string, manufacturer: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
 
     if (model) {
-      searchparams.set("model", model);
+      searchParams.set("model", model);
     } else {
-      searchparams.delete("model");
+      searchParams.delete("model");
     }
     if (manufacturer) {
-      searchparams.set("manufacturer", manufacturer);
+      searchParams.set("manufacturer", manufacturer);
     } else {
-      searchparams.delete("manufacturer");
+      searchParams.delete("manufacturer");
     }
     const newPathname = `${
       window.location.pathname
-    }?${searchparams.toString()}`;
+    }?${searchParams.toString()}`;
 
     router.push(newPathname);
   };
