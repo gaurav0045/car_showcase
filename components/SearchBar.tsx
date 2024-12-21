@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 
-const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
+const SearchButton = ({ otherClasses = "" }: { otherClasses: string }) => (
   <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
     <Image
       src={"/magnifying-glass.svg"}
@@ -25,15 +25,15 @@ const SearchBar = () => {
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault;
+    e.preventDefault();
 
-    if (manufacturer === " " && model === " ") {
+    if (manufacturer.trim() === "" && model.trim() === "") {
       return alert("Please fill in the search bar");
     }
-    updatesearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
-  const updatesearchParams = (model: string, manufacturer: string) => {
+  const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
     if (model) {
@@ -46,11 +46,11 @@ const SearchBar = () => {
     } else {
       searchParams.delete("manufacturer");
     }
-    const newPathname = `${
+    const newPathName = `${
       window.location.pathname
     }?${searchParams.toString()}`;
 
-    router.push(newPathname);
+    router.push(newPathName);
   };
 
   return (

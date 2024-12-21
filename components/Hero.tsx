@@ -2,16 +2,24 @@
 
 import Image from "next/image";
 
-import CustomButton from "./CustomButton";
-// import { CustomButton } from "@/components";
+// import CustomButton from "./CustomButton";
+import { CustomButton } from "@/components";
 
 const Hero = () => {
-  const handleScroll = () => {};
+  const handleScroll = () => {
+    const handleScroll = () => {
+      const nextSection = document.getElementById("discover");
+
+      if (nextSection) {
+        nextSection.scrollIntoView({behavior: "smooth"});
+      }
+    }
+  };
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
         <h1 className="hero__title">
-          Effortlessly search, book, or rent a car in no time!
+          Book or rent a car in no time.
         </h1>
 
         <p className="hero__subtitle">

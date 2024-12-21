@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,8 +12,8 @@ const Navbar = () => {
           <Image
             src="/logo.svg"
             alt="Ride Hub Logo"
-            width={138}
-            height={18}
+            width={198}
+            height={28}
             className="object-contain"
           />
         </Link>
